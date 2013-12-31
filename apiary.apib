@@ -1,0 +1,228 @@
+FORMAT: 1A
+HOST: http://api.payments.intuit.com
+
+# REST API Reference
+Notes API is a *short texts saving* service similar to its physical paper presence on your table.
+
+# Group Authentication
+TDB
+
+# Group Payments
+Notes related resources of the **Payment API**
+
+## Payments Collection [/payments]
+### Create a Payment [POST]
++ Request (application/json)
+
+        { "title": "Buy cheese and bread for breakfast." }
+
++ Response 201 (application/json)
+
+        { "id": 3, "title": "Buy cheese and bread for breakfast." }
+
+### List all Payments [GET]
++ Response 200 (application/json)
+
+        [{
+          "id": 1, "title": "Jogging in park"
+        }, {
+          "id": 2, "title": "Pick-up posters from post-office"
+        }]
+
+## Options [/payments/{payment-id}]
+### View a Payment [GET]
++ Request (application/json)
+
+        { "title": "Buy cheese and bread for breakfast." }
+
++ Response 201 (application/json)
+
+        { "id": 3, "title": "Buy cheese and bread for breakfast." }
+
+# Group Authorizations
+Notes related resources of the **Auth API**
+
+## Authorizations Collection [/authorizations]
+### Authorize a Payment [POST]
++ Request (application/json)
+
+        { "title": "Buy cheese and bread for breakfast." }
+
++ Response 201 (application/json)
+
+        { "id": 3, "title": "Buy cheese and bread for breakfast." }
+
+
+## Options [/authorizations/{authorization-id}]
+### Capture an Authorized Payment [PUT]
++ Request (application/json)
+
+        { "title": "Buy cheese and bread for breakfast." }
+
++ Response 201 (application/json)
+
+        { "id": 3, "title": "Buy cheese and bread for breakfast." }
+
+### Void an Authorized Payment [DELETE]
++ Request (application/json)
+
+        { "title": "Buy cheese and bread for breakfast." }
+
++ Response 201 (application/json)
+
+        { "id": 3, "title": "Buy cheese and bread for breakfast." }
+
+### View an Authorizated Payment [GET]
++ Request (application/json)
+
+        { "title": "Buy cheese and bread for breakfast." }
+
++ Response 201 (application/json)
+
+        { "id": 3, "title": "Buy cheese and bread for breakfast." }
+
+# Group Sale Transactions
+Notes related resources of the **Sale Txn API**
+
+## Sale Transactions Collection [/sale-txns/{sale-txn-id}]
+### View a Sale Transacation [GET]
++ Request (application/json)
+
+        { "title": "Buy cheese and bread for breakfast." }
+
++ Response 201 (application/json)
+
+        { "id": 3, "title": "Buy cheese and bread for breakfast." }
+
+# Group Refunds
+Notes related resources of the **Refund API**
+
+## Refunds Collection [/sale-txns/{sale-txn-id}/refunds]
+### Refund a Sale Transacation [POST] 
++ Request (application/json)
+
+        { "title": "Buy cheese and bread for breakfast." }
+
++ Response 201 (application/json)
+
+        { "id": 3, "title": "Buy cheese and bread for breakfast." }
+
+
+## Options [/sale-txns/{sale-txn-id}/refunds/{refund-id}]
+### View a Refund details [GET] 
++ Request (application/json)
+
+        { "title": "Buy cheese and bread for breakfast." }
+
++ Response 201 (application/json)
+
+        { "id": 3, "title": "Buy cheese and bread for breakfast." }
+
+# Group Wallet
+Notes related resources of the **Wallet API**
+
+## Credit Card Wallet Collection [/wallet/credit-cards/{credit-card-id}]
+### Store a Credit Card in the wallet [POST]
++ Request (application/json)
+
+        { "title": "Buy cheese and bread for breakfast." }
+
++ Response 201 (application/json)
+
+        { "id": 3, "title": "Buy cheese and bread for breakfast." }
+
+### View a stored Credit Card [GET]
++ Request (application/json)
+
+        { "title": "Buy cheese and bread for breakfast." }
+
++ Response 201 (application/json)
+
+        { "id": 3, "title": "Buy cheese and bread for breakfast." }
+
+### Delete a stored Credit Card [DELETE]
++ Request (application/json)
+
+        { "title": "Buy cheese and bread for breakfast." }
+
++ Response 201 (application/json)
+
+        { "id": 3, "title": "Buy cheese and bread for breakfast." }
+
+
+## Bank Account Wallet Collection [/wallet/bank-accounts/{bank-account-id}]
+### Store a Bank Account in the wallet [POST]
++ Request (application/json)
+
+        { "title": "Buy cheese and bread for breakfast." }
+
++ Response 201 (application/json)
+
+        { "id": 3, "title": "Buy cheese and bread for breakfast." }
+
+### View a stored Bank Account [GET]
++ Request (application/json)
+
+        { "title": "Buy cheese and bread for breakfast." }
+
++ Response 201 (application/json)
+
+        { "id": 3, "title": "Buy cheese and bread for breakfast." }
+
+### Delete a stored Bank Account [DELETE]
++ Request (application/json)
+
+        { "title": "Buy cheese and bread for breakfast." }
+
++ Response 201 (application/json)
+
+        { "id": 3, "title": "Buy cheese and bread for breakfast." }
+
+# Group Payment Subscriptions
+Notes related resources of the **Subscription API**
+
+## Subscriptions Collection [/subscriptions]
+### Create a subscription [POST]
++ Request (application/json)
+
+        { "title": "Buy cheese and bread for breakfast." }
+
++ Response 201 (application/json)
+
+        { "id": 3, "title": "Buy cheese and bread for breakfast." }
+        
+        
+## Options [/subscripitons/{subscription-id}]
+A single Subscription object with all its details
+
+### View a Subscription [GET]
++ Parameters
+    + subscription-id (required, number, `1`) ... Numeric `id` of the Note to perform action with. Has example value.
+
+
++ Response 200 (application/json)
+
+    + Header
+
+            X-My-Header: The Value
+
+    + Body
+
+            { "id": 2, "title": "Pick-up posters from post-office" }
+
+### Remove a Subscription [DELETE]
++ Response 204
+
+# Group Errors
+Errors returns by this API
+
++ 4xx (application/json)
+
++ Body
+
+        { 
+            "err_name": "ERROR_NAME", 
+            "reason": "Error description",
+            "more_info_link": "http://link-to-error-documentation-OR-bug-tracking-ticket-num",
+            "details": "Addtional details about the error"
+        }
